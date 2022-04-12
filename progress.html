@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            #myprogress{
+                width: 100%;
+                background-color: brown;
+
+            }
+            #mybar{
+                width: 1px;
+                height: 22px;
+                background-color: cornflowerblue;
+
+            }
+        </style>
+        <body>
+            <div id="myprogress">
+                <div id="mybar"></div>
+            </div>
+            <button onclick="move()">clickme</button>
+            <script>
+                var i=0;
+                function move(){
+                    if(i==0){
+                        i=1;
+                        var elem=document.getElementById("mybar");
+                        var width=1;
+                        var id=setInterval(frame,3000);
+                        function frame(){
+                            if(width>=100){
+                                clearInterval(id);
+                                i=0;
+                            }
+                            else{
+                                width++;
+                                elem.style.width=width+"%";
+                            }
+                        }
+                    }
+                }
+            </script>
+        </body>
+    </head>
+</html>
